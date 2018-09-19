@@ -1,0 +1,26 @@
+<?xml version='1.0' encoding='utf-8'?>
+<widget id="com.phonegap.arimasda" version="1.0.4" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0" xmlns:gap="http://phonegap.com/ns/1.0">
+    <name>arimasda</name>
+    <description>Arima SDA App</description>
+    <author email="allanadimoolah@gmail.com" href="http://arimasda.org">Allan Adimoolah</author>
+    <access origin="http://arimasda.org/*" />
+    <access origin="https://arimasda.org/*" />
+    <access origin="http://arimasda.org/feed" />
+    <access origin="https://arimasda.org/feed" />
+    <content src="index.html" />
+    <preference name="DisallowOverscroll" value="true" />
+    <gap:plugin name="onesignal-cordova-plugin" source="npm" spec="^2.1.1" />
+    <preference name="phonegap-version" value="cli-8.0.0" />
+    <preference name="android-build-tool" value="gradle" />
+    <preference name="android-minSdkVersion" value="15" />
+    <preference name="windows-appx-target" value="8.1-phone" />
+    <preference name="WindowsToastCapable" value="true" />
+    <access origin="*" />
+    <access origin="content:///*" />
+    <allow-intent href="http://*/*" />
+    <allow-intent href="https://*/*" />
+    <allow-intent href="tel:*" />
+    <allow-intent href="sms:*" />
+    <allow-intent href="mailto:*" />
+    <allow-intent href="geo:*" />
+</widget>

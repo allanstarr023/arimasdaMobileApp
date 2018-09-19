@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" crossorigin="anonymous"
+<title>Page Title</title>
+</head>
+
+<body>
+<div class="container">
+  <div class="row">
+    <div class="col-2"><div class="row"><h3>PLAYERS</h3></div></div>
+    <div class="col-8"><div class="row"><h3>ROUND SCORES</h3></div></div>
+    <div class="col-2"><div class="row"><h3>TOTAL</h3></div></div>
+  </div>
+  <div class="row">
+  <div class="col-2">
+    <span class="label label-default"><h4>Player 1</h4></span>
+  </div>
+  
+  <div class="col-8">
+ 
+    <form class="form-inline" id="player1" method="post" action="" role="form" data-toggle="validator"><div class="form-row">
+      
+      <div class="col-md-2"><select class="form-control form-control-sm step" name="QR1" id="step1" required><option value="">Select Score</option><option value="7">Lock n Win</option><option value="5">Win</option><option value="3">2nd</option></select></div>
+      <div class="col-md-2"><select class="form-control form-control-sm step" name="QR2" id="step2" required disabled><option value="">Select Score</option><option value="7">Lock n Win</option><option value="5">Win</option><option value="3">2nd</option></select></div>
+      <div class="col-md-2"><select class="form-control form-control-sm step" name="QR3" id="step3" required disabled><option value="">Select Score</option><option value="7">Lock n Win</option><option value="5">Win</option><option value="3">2nd</option></select></div>
+      <div class="col-md-2"><select class="form-control form-control-sm" name="QR4" id="QR4"><option value="">Select Score</option><option value="7">Lock n Win</option><option value="5">Win</option><option value="3">2nd</option></select></div>
+      <div class="col-md-2"><select class="form-control form-control-sm" name="QR5" id="QR5"><option value="">Select Score</option><option value="7">Lock n Win</option><option value="5">Win</option><option value="3">2nd</option></select></div>
+      <div class="col-md-2"><select class="form-control form-control-sm" name="QR6" id="QR6"><option value="">Select Score</option><option value="7">Lock n Win</option><option value="5">Win</option><option value="3">2nd</option></select></div>
+    </div></form>
+    
+  </div>
+  
+  <div class="col-2">
+    <div class="row">
+    	<div class="col-2"><h4 class="text-right" id="total"></h4></div>
+        <div class="col-2"><h4 class="text-left">pts</h4></div>
+        <div class="col-8"></div>
+    </div>
+  </div>
+    
+</div>
+</div>
+
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+		/$(function () {
+			var fields = $('#player1 :input').change(calculate);
+
+			function calculate() {
+				var total = 0;
+				fields.each(function () {
+					total += +$(this).val();
+				})
+				$('#total').html(total.toFixed(0));
+			}
+		});
+
+
+		// The change event is fired when a form element loses focus
+		// and its value has changed since the last time we interacted with it
+		$('.step').change(function() {
+			var next_step = $(this).next('.step');
+			var all_next_steps = $(this).nextAll('.step');
+			// If the element *has* a value
+			if ($(this).val()) {
+				next_step.attr('disabled', false);
+			}
+			// If the element doesn't have a value
+			else {
+				// Clear the value of all next steps and disable
+				all_next_steps.val('');
+				all_next_steps.attr('disabled', true);
+			}
+		});
+
+		$('.step').keydown(function(event) {
+			// If they pressed tab AND the input has a (valid) value
+			if ($(this).val() && event.keyCode == 9) {
+				$(this).next('.step').attr('disabled', false);
+			}
+		});
+    </script>
+</body>
+</html>
